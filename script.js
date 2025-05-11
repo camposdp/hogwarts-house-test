@@ -89,16 +89,6 @@ const questions = [
       { text: "Discutir estratégias para um torneio com colegas.", points: { sonserina: 3 } },
     ]
   },
-    {
-    text: "Em uma missão fora dos muros de Hogwarts, você está com três colegas e o líder da missão desaparece. A decisão sobre o rumo do grupo recai sobre você. O que faz?",
-    options: [
-      { text: "Assume o comando e segue o plano original com convicção.", points: { grifinoria: 3 } },
-      { text: "Sugere uma votação democrática sobre o que fazer.", points: { lufa_lufa: 3 } },
-      { text: "Propõe uma nova estratégia mais arriscada, mas com mais chances de sucesso.", points: { sonserina: 3 } },
-      { text: "Busca informações adicionais antes de agir, mesmo que isso tome tempo.", points: { corvinal: 3 } },
-    ]
-  },
-  // (As 10 primeiras já foram adicionadas. Adicionando as últimas 10 abaixo)
   {
     text: "Durante uma competição intercasas, você percebe que um colega do seu time trapaceou. Vencer trará glória para sua casa. O que faz?",
     options: [
