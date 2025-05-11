@@ -1,173 +1,189 @@
+// script.js
+
 const questions = [
+  // Nível 1 – Dilemas ético-motivacionais (peso: 3-5)
   {
-    text: "Em uma missão fora dos muros de Hogwarts, você está com três colegas e o líder da missão desaparece. O que faz?",
+    text: "Você está com colegas em uma missão quando o líder desaparece. O que faz?",
     options: [
-      { text: "Assume o comando e segue o plano original com convicção.", points: { grifinoria: 3 } },
-      { text: "Sugere uma votação democrática sobre o que fazer.", points: { lufa_lufa: 3 } },
-      { text: "Propõe uma nova estratégia mais arriscada.", points: { sonserina: 3 } },
-      { text: "Busca mais informações antes de decidir.", points: { corvinal: 3 } }
+      { text: "Assume o comando e segue o plano original com convicção.", points: { grifinoria: 5 } },
+      { text: "Sugere uma votação democrática sobre o que fazer.", points: { lufa_lufa: 5 } },
+      { text: "Propõe uma nova estratégia arriscada, mas com mais chances de sucesso.", points: { sonserina: 5 } },
+      { text: "Busca informações adicionais antes de agir, mesmo que isso tome tempo.", points: { corvinal: 5 } }
     ]
   },
   {
-    text: "Você encontra um livro perigoso escondido. O que faz?",
+    text: "Durante uma competição, um colega trapaceia. O que faz?",
     options: [
-      { text: "Estuda às escondidas.", points: { sonserina: 3 } },
-      { text: "Entrega ao diretor.", points: { lufa_lufa: 3 } },
-      { text: "Estuda com cautela e devolve sem ser visto.", points: { corvinal: 3 } },
-      { text: "Guarda para usar em necessidade extrema.", points: { grifinoria: 3 } }
+      { text: "Ignora. A vitória da casa é mais importante.", points: { sonserina: 4 } },
+      { text: "Conversa com o colega para que confesse.", points: { lufa_lufa: 3 } },
+      { text: "Denuncia anonimamente.", points: { corvinal: 4 } },
+      { text: "Tenta reverter a vantagem injusta com esforço próprio.", points: { grifinoria: 4 } }
     ]
   },
   {
-    text: "Um colega pede que você encubra uma trapaça. O que faz?",
+    text: "Você encontra um feitiço que pode curar alguém próximo, mas é instável.",
     options: [
-      { text: "Conta ao professor.", points: { lufa_lufa: 3 } },
-      { text: "Guarda segredo, é seu amigo.", points: { grifinoria: 2, sonserina: 1 } },
-      { text: "Usa isso como moeda de troca.", points: { sonserina: 3 } },
-      { text: "Tenta convencê-lo a confessar.", points: { corvinal: 3 } }
+      { text: "Usa mesmo assim. Vale o risco.", points: { grifinoria: 5 } },
+      { text: "Busca ajuda para estabilizar o feitiço.", points: { corvinal: 4 } },
+      { text: "Espera. O bem coletivo importa mais.", points: { lufa_lufa: 4 } },
+      { text: "Tenta recriar o efeito com outra abordagem.", points: { sonserina: 5 } }
     ]
   },
   {
-    text: "Qual matéria você escolheria?",
+    text: "Você é acusado injustamente. O único que pode te defender tem medo.",
     options: [
-      { text: "Magia Antiga.", points: { corvinal: 3 } },
-      { text: "Herbologia Avançada.", points: { lufa_lufa: 3 } },
-      { text: "Poções Experimentais.", points: { sonserina: 3 } },
-      { text: "Defesa Contra as Artes das Trevas.", points: { grifinoria: 3 } }
+      { text: "Assume a culpa.", points: { lufa_lufa: 4 } },
+      { text: "Enfrenta o colega.", points: { grifinoria: 4 } },
+      { text: "Se defende sozinho.", points: { sonserina: 4 } },
+      { text: "Busca evidências para se inocentar.", points: { corvinal: 4 } }
     ]
   },
   {
-    text: "Você olha no Espelho de Ojesed. O que vê?",
+    text: "Você encontra um livro de magia avançada e perigosa.",
     options: [
-      { text: "Reconhecimento por uma descoberta.", points: { corvinal: 3 } },
-      { text: "Pessoas que te admiram e confiam.", points: { lufa_lufa: 3 } },
-      { text: "Uma vitória heroica.", points: { grifinoria: 3 } },
-      { text: "Prestígio e influência no mundo bruxo.", points: { sonserina: 3 } }
+      { text: "Estuda mesmo sendo proibido.", points: { sonserina: 5, corvinal: 2 } },
+      { text: "Entrega à direção.", points: { lufa_lufa: 5 } },
+      { text: "Estuda e devolve sem que ninguém saiba.", points: { corvinal: 4 } },
+      { text: "Guarda para emergências.", points: { grifinoria: 3, sonserina: 2 } }
     ]
   },
   {
-    text: "Você encontra uma criatura ferida. O que faz?",
+    text: "Você vê um aluno ser humilhado publicamente por um professor.",
     options: [
-      { text: "Tenta curá-la mesmo sem preparo.", points: { grifinoria: 3 } },
-      { text: "Vai buscar ajuda.", points: { lufa_lufa: 3 } },
-      { text: "Observa antes de agir.", points: { corvinal: 3 } },
-      { text: "Reúne colegas para agir em grupo.", points: { sonserina: 3 } }
+      { text: "Confronta o professor.", points: { grifinoria: 5 } },
+      { text: "Oferece apoio em particular.", points: { lufa_lufa: 4 } },
+      { text: "Organiza denúncia com outros colegas.", points: { corvinal: 3 } },
+      { text: "Cria forma do professor ser desmascarado indiretamente.", points: { sonserina: 5 } }
     ]
   },
   {
-    text: "Em situações de grupo, você costuma ser quem…",
+    text: "Você tem a chance de visitar Azkaban para estudo.",
     options: [
-      { text: "Assume a liderança.", points: { grifinoria: 3 } },
-      { text: "Organiza e ajuda todos.", points: { lufa_lufa: 3 } },
-      { text: "Gera estratégias.", points: { sonserina: 3 } },
-      { text: "Traz ideias diferentes.", points: { corvinal: 3 } }
+      { text: "Aceita. É uma oportunidade única.", points: { corvinal: 4 } },
+      { text: "Recusa. É perturbador demais.", points: { lufa_lufa: 3 } },
+      { text: "Vai para investigar o sistema prisional.", points: { sonserina: 4 } },
+      { text: "Vai para enfrentar seu medo.", points: { grifinoria: 4 } }
     ]
   },
   {
-    text: "Você foi acusado injustamente. O único que pode te defender tem medo. O que faz?",
+    text: "Você é indicado para representar sua casa em um duelo. Seu oponente te provoca.",
     options: [
-      { text: "Assume a culpa.", points: { lufa_lufa: 3 } },
-      { text: "Confronta o colega para que fale.", points: { grifinoria: 3 } },
-      { text: "Se defende sozinho.", points: { sonserina: 3 } },
-      { text: "Tenta provar por conta própria com provas.", points: { corvinal: 3 } }
+      { text: "Encara de frente e rebate.", points: { grifinoria: 4 } },
+      { text: "Ignora e mantém foco.", points: { lufa_lufa: 3 } },
+      { text: "Usa a provocação contra ele no momento certo.", points: { sonserina: 4 } },
+      { text: "Analisa os motivos da provocação.", points: { corvinal: 3 } }
     ]
   },
   {
-    text: "Você tem a chance de explorar Azkaban para estudo. O que faz?",
+    text: "Você descobre um segredo sobre um colega que pode prejudicá-lo.",
     options: [
-      { text: "Vai. É uma oportunidade única.", points: { corvinal: 3 } },
-      { text: "Recusa. É um lugar sombrio demais.", points: { lufa_lufa: 3 } },
-      { text: "Vai e documenta tudo para debate.", points: { grifinoria: 3 } },
-      { text: "Vai com intuito de questionar o sistema.", points: { sonserina: 3 } }
+      { text: "Confronta diretamente.", points: { grifinoria: 4 } },
+      { text: "Ignora. Não é problema seu.", points: { lufa_lufa: 3 } },
+      { text: "Guarda como vantagem futura.", points: { sonserina: 5 } },
+      { text: "Investiga o contexto antes de agir.", points: { corvinal: 4 } }
     ]
   },
   {
-    text: "O Chapéu Seletor sugere uma casa diferente da que esperava. O que faz?",
+    text: "Você foi sorteado para liderar um grupo em uma tarefa difícil.",
     options: [
-      { text: "Aceita. Ele sabe melhor.", points: { corvinal: 3 } },
-      { text: "Insiste na sua escolha.", points: { grifinoria: 3 } },
-      { text: "Pede mais informações antes de decidir.", points: { sonserina: 3 } },
-      { text: "Escolhe pensando nos colegas e futuro.", points: { lufa_lufa: 3 } }
+      { text: "Assume o desafio sem hesitar.", points: { grifinoria: 5 } },
+      { text: "Ouça os colegas antes de decidir.", points: { lufa_lufa: 4 } },
+      { text: "Tenta delegar tarefas para ganhar eficiência.", points: { sonserina: 4 } },
+      { text: "Organiza tudo com base em lógica e dados.", points: { corvinal: 4 } }
+    ]
+  },
+
+  // Nível 2 – Subjetivas (peso: 2-3)
+  {
+    text: "O Chapéu Seletor escuta seus pensamentos. Você teme ser colocado onde...",
+    options: [
+      { text: "Precise tomar decisões difíceis por todos.", points: { grifinoria: 2 } },
+      { text: "Precise disputar constantemente.", points: { sonserina: 2 } },
+      { text: "Precise se provar em silêncio.", points: { corvinal: 2 } },
+      { text: "Precise trabalhar duro por pouco reconhecimento.", points: { lufa_lufa: 2 } }
     ]
   },
   {
-    text: "Você encontra um objeto mágico que prevê o futuro. O que faz?",
+    text: "No Espelho de Ojesed, você se vê...",
     options: [
-      { text: "Usa na hora.", points: { corvinal: 3 } },
-      { text: "Guarda para momento crítico.", points: { sonserina: 3 } },
-      { text: "Deixa onde está.", points: { lufa_lufa: 3 } },
-      { text: "Estuda sem ativá-lo.", points: { grifinoria: 3 } }
+      { text: "Com uma descoberta celebrada.", points: { corvinal: 3 } },
+      { text: "Sendo lembrado por coragem.", points: { grifinoria: 3 } },
+      { text: "Rodeado por aliados leais.", points: { lufa_lufa: 3 } },
+      { text: "Como alguém de grande influência.", points: { sonserina: 3 } }
     ]
   },
   {
-    text: "Você nota um plágio do seu trabalho. O que faz?",
+    text: "Na maioria das vezes, você é quem...",
     options: [
-      { text: "Fala com o aluno diretamente.", points: { grifinoria: 3 } },
-      { text: "Ignora. Você conhece seu valor.", points: { lufa_lufa: 3 } },
-      { text: "Conta ao professor.", points: { corvinal: 3 } },
-      { text: "Refaz o trabalho ainda melhor.", points: { sonserina: 3 } }
+      { text: "Pensa diferente do grupo.", points: { corvinal: 3 } },
+      { text: "Garante que todos sejam ouvidos.", points: { lufa_lufa: 3 } },
+      { text: "Toma frente em situações confusas.", points: { grifinoria: 3 } },
+      { text: "Analisa sem se comprometer de início.", points: { sonserina: 3 } }
     ]
   },
   {
-    text: "Você deve escolher o novo líder de grupo. O que faz?",
+    text: "Na sua cabeceira está sempre...",
     options: [
-      { text: "Se indica.", points: { sonserina: 3 } },
-      { text: "Indica alguém mais experiente.", points: { lufa_lufa: 3 } },
-      { text: "Sugere votação coletiva.", points: { grifinoria: 3 } },
-      { text: "Propõe alguém com ideias inovadoras.", points: { corvinal: 3 } }
+      { text: "Um objeto raro e poderoso.", points: { sonserina: 3 } },
+      { text: "Um livro cheio de anotações.", points: { corvinal: 3 } },
+      { text: "Algo com valor sentimental.", points: { lufa_lufa: 3 } },
+      { text: "Planos e metas anotados.", points: { grifinoria: 3 } }
     ]
   },
   {
-    text: "Você pode conversar com um bruxo histórico. Quem escolhe?",
+    text: "Na dúvida, você costuma confiar mais em...",
     options: [
-      { text: "Uma inventora brilhante e esquecida.", points: { corvinal: 3 } },
-      { text: "Um curandeiro que criou métodos sem pedir nada em troca.", points: { lufa_lufa: 3 } },
-      { text: "Um herói anônimo de batalhas mágicas.", points: { grifinoria: 3 } },
-      { text: "Um diplomata que manipulou guerras sem lançar um feitiço.", points: { sonserina: 3 } }
+      { text: "Sua habilidade de convencer.", points: { sonserina: 3 } },
+      { text: "Seus conhecimentos prévios.", points: { corvinal: 3 } },
+      { text: "Seus valores pessoais.", points: { lufa_lufa: 3 } },
+      { text: "Sua capacidade de agir rápido.", points: { grifinoria: 3 } }
+    ]
+  },
+
+  // Nível 3 – Lore e simbólicas (peso: 1-2)
+  {
+    text: "Qual atividade de sábado em Hogwarts mais combina com você?",
+    options: [
+      { text: "Treinar feitiços em grupo avançado.", points: { grifinoria: 2 } },
+      { text: "Ajudar no viveiro mágico.", points: { lufa_lufa: 2 } },
+      { text: "Estudar teorias na biblioteca.", points: { corvinal: 2 } },
+      { text: "Discutir táticas de torneio com amigos.", points: { sonserina: 2 } }
     ]
   },
   {
-    text: "Uma competição entre casas depende de você. Seu oponente te provoca publicamente.",
+    text: "Se pudesse conversar com um personagem histórico, escolheria...",
     options: [
-      { text: "Responde e encara o desafio.", points: { grifinoria: 3 } },
-      { text: "Ignora e foca no objetivo.", points: { lufa_lufa: 3 } },
-      { text: "Usa a provocação para distraí-lo mais tarde.", points: { sonserina: 3 } },
-      { text: "Reflete sobre os motivos dele antes da disputa.", points: { corvinal: 3 } }
+      { text: "Uma inventora brilhante e esquecida.", points: { corvinal: 2 } },
+      { text: "Um curandeiro generoso e invisível.", points: { lufa_lufa: 2 } },
+      { text: "Um herói silencioso das batalhas.", points: { grifinoria: 2 } },
+      { text: "Um diplomata manipulador e estratégico.", points: { sonserina: 2 } }
     ]
   },
   {
-    text: "Você vê um aluno ser humilhado por um professor. O que faz?",
+    text: "Se pudesse escolher uma posição no quadribol:",
     options: [
-      { text: "Confronta o professor.", points: { grifinoria: 3 } },
-      { text: "Apoia o aluno em segredo.", points: { lufa_lufa: 3 } },
-      { text: "Organiza denúncia formal com colegas.", points: { corvinal: 3 } },
-      { text: "Cria armadilha para o professor se revelar.", points: { sonserina: 3 } }
+      { text: "Apanhador.", points: { corvinal: 2 } },
+      { text: "Artilheiro.", points: { sonserina: 2 } },
+      { text: "Batedor.", points: { grifinoria: 2 } },
+      { text: "Goleiro.", points: { lufa_lufa: 2 } }
     ]
   },
   {
-    text: "Na sua mesa de cabeceira há sempre:",
+    text: "Entre os tipos de magia, qual mais te atrai?",
     options: [
-      { text: "Um objeto mágico raro.", points: { sonserina: 3 } },
-      { text: "Livros anotados.", points: { corvinal: 3 } },
-      { text: "Um bilhete de amigo.", points: { lufa_lufa: 3 } },
-      { text: "Uma lista de metas.", points: { grifinoria: 3 } }
+      { text: "Oclumência e Legilimência.", points: { sonserina: 2 } },
+      { text: "Magias de proteção e vínculo.", points: { lufa_lufa: 2 } },
+      { text: "Transfiguração avançada.", points: { corvinal: 2 } },
+      { text: "Feitiços de combate.", points: { grifinoria: 2 } }
     ]
   },
   {
-    text: "Você pode jogar quadribol. Que posição escolhe?",
+    text: "Se estivesse em um grupo restaurando um artefato antigo:",
     options: [
-      { text: "Apanhador.", points: { corvinal: 3 } },
-      { text: "Batedor.", points: { grifinoria: 3 } },
-      { text: "Artilheiro.", points: { sonserina: 3 } },
-      { text: "Goleiro.", points: { lufa_lufa: 3 } }
-    ]
-  },
-  {
-    text: "Um ser mágico oferece sabedoria ilimitada se você abrir mão de amar. Você…",
-    options: [
-      { text: "Recusa.", points: { lufa_lufa: 3 } },
-      { text: "Aceita pelo bem maior.", points: { corvinal: 3 } },
-      { text: "Negocia um meio-termo.", points: { grifinoria: 3 } },
-      { text: "Aceita. Amor é fraqueza.", points: { sonserina: 3 } }
+      { text: "Coordenaria o grupo.", points: { grifinoria: 2 } },
+      { text: "Garantiria que todos fossem ouvidos.", points: { lufa_lufa: 2 } },
+      { text: "Faria a pesquisa histórica.", points: { corvinal: 2 } },
+      { text: "Cuidaria da eficiência do processo.", points: { sonserina: 2 } }
     ]
   }
 ];
@@ -226,7 +242,12 @@ submitBtn.addEventListener("click", () => {
     return;
   }
 
-  const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  const totalPoints = Object.values(scores).reduce((sum, val) => sum + val, 0);
+  const percentages = Object.fromEntries(
+    Object.entries(scores).map(([house, val]) => [house, Math.round((val / totalPoints) * 100)])
+  );
+
+  const sorted = Object.entries(percentages).sort((a, b) => b[1] - a[1]);
   const topHouse = sorted[0][0];
 
   const houseNames = {
@@ -236,5 +257,10 @@ submitBtn.addEventListener("click", () => {
     lufa_lufa: "Lufa-Lufa"
   };
 
-  resultDiv.textContent = `Você pertence à casa ${houseNames[topHouse]}!`;
+  resultDiv.innerHTML = `<p>Você pertence à casa <strong>${houseNames[topHouse]}</strong>!</p>`;
+  resultDiv.innerHTML += `<p><em>Distribuição:</em><br>
+    Grifinória: ${percentages.grifinoria}%<br>
+    Sonserina: ${percentages.sonserina}%<br>
+    Corvinal: ${percentages.corvinal}%<br>
+    Lufa-Lufa: ${percentages.lufa_lufa}%</p>`;
 });
